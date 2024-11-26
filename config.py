@@ -1,0 +1,2 @@
+SERVIDOR_HOST = "localhost"
+SERVIDOR_PORTA = 12345

@@ -1,8 +1,16 @@
 import socket
 
+from config import SERVIDOR_HOST, SERVIDOR_PORTA
+
 def iniciar_conexao():
     host = input("Digite o IP do servidor: ")
     porta = int(input("Digite a porta do servidor: "))
+
+    # Validação dos valores com o servidor
+    if host != SERVIDOR_HOST or porta != SERVIDOR_PORTA:
+        print("Erro: IP ou porta inválidos. Conexão recusada.")
+        exit(1)
+
     return host, porta
 
 def menu_cliente(host, porta):

@@ -1,5 +1,6 @@
 import socket
 import threading
+from config import SERVIDOR_HOST, SERVIDOR_PORTA
 
 carros = [{"marca": "Toyota", "modelo": "Corolla", "ano": "2020", "cor": "Preto"}]
 
@@ -48,9 +49,9 @@ def gerenciar_cliente(conexao, endereco):
 
 def iniciar_servidor():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as servidor:
-        servidor.bind(("localhost", 12345))
+        servidor.bind((SERVIDOR_HOST, SERVIDOR_PORTA))
         servidor.listen(5)
-        print("Servidor iniciado e aguardando conexões...")
+        print(f"Servidor iniciado em {SERVIDOR_HOST}:{SERVIDOR_PORTA} e aguardando conexões...")
 
         while True:
             conexao, endereco = servidor.accept()
